@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A few words of Rizz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://static.wikia.nocookie.net/cad66690-7ba9-4b68-90bc-2908d9f85a1a/scale-to-width/755">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        .large-text {
+            font-family: 'Truculenta', sans-serif;
+            font-size: 3em;
+            margin-top: -500px;
+        }
+
+        .generate-button {
+            border-radius: 20px;
+            padding: 10px 20px;
+            background-color: #444;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .pickup-line {
+            font-family: 'Truculenta', sans-serif;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .note-text {
+            font-family: 'Truculenta', sans-serif;
+            font-size: 1em; /* Changed font size */
+            margin-top: 20px;
+            position: absolute;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="large-text">A few words of Rizz...</div>
+    <button class="generate-button" onclick="generatePickupLine()">Generate Rizz</button>
+    <div class="pickup-line" id="pickupLine"></div>
+    <div class="note-text">Note: Only 1 line can be generated every 1 second, Slow your Rizz down!</div>
+
+    <script>
+        function generatePickupLine() {
+            var pickupLines = [
+                "Can I be your snowflake? I promise to never melt away from your heart.",
+                "Are you French? Because Eiffel for you.",
+                "Are you a Wi-Fi signal? Because I’m feeling a strong connection.",
+                "No pen, no paper...but, you still draw my attention.",
+                "Are you a heart? Because I'd never stop beating for you.",
+                "I believe in following my dreams, so you lead the way.",
+                "If being beautiful was a crime, you’d be on the most wanted list.",
+                "Kissing is a love language. Want to start a conversation with me?",
+                "Are you iron? Because I don’t get enough of you.",
+                "Should we get coffee? Cause I like you a latte.",
+                "You should be Jasmine without the 'Jas'.",
+                "Are you a Disney ride? Because I'd wait forever for you.",
+                "Are you water? Because I'd die without you.",
+                "I see you like tequila. Does that mean you'll give me a shot?",
+                "Hey, I’m sorry to bother you, but my phone must be broken because it doesn’t seem to have your number in it.",
+                "Are you a boxer? Because you're a total knockout.",
+                "Are you public speaking? Because you make me really nervous.",
+                "Are you good at math? Me neither, the only number I care about is yours.",
+                "I’m not religious, but you’re the answer to all of my prayers.",
+                "Is your name Elsa? Because I can't let you go.",
+                "Do you know the difference between history and you? History is the past and you are my future.",
+                "Can I follow you home? My heart seems to have taken a detour since I met you.",
+                "Are you April 1st? Because I'm a fool for you.",
+                "Are you the Krabby Patty formula? Because I'm trying to steal you.",
+                "Is your name Chamomile? Because you're a hot-tea!",
+                "Are you legos? Because I'd never lego of you.",
+                "Do you work for NASA? Because your beauty is out of this world.",
+                "Math is so confusing. It's always talking about x and y and never you and I.",
+                "You look a lot like my next girlfriend/boyfriend/partner.",
+                "Are you Christmas morning? Because I’ve been waiting all year for you to arrive.",
+                "Are you from Tennessee? Because you're the only ten I see.",
+                "Are you Nemo? Because I've been trying to find you.",
+                "Are you a bank loan? Because you have my interest.",
+                "I hope you know CPR, because you just took my breath away.",
+                "Are you the sun? Because I could stare at you all day, and it’d be worth the risk.",
+                "Are you a beaver? Because DAM!",
+                "Are you a keyboard? Because you're just my type.",
+                "My mom said sharing is caring but, no...you're all mine!",
+                "Are you John Cena? Because I've never Cena girl like you before.",
+                "It's time to pay up. It's the first of the month, and you've been living in my mind rent-free.",
+                "Are you a light? Because you always make me feel bright.",
+                "Just so you know, I'm a felon...because I felon love with you.",
+                "Do you like Star Wars? Cause Yoda only one for me.",
+                "Are you chicken fingers and fries? Because I don't care how many options I have, I will always choose you.",
+                "It's a good thing I have a library card because I've been checking you out.",
+                "Do you have a bandaid? My knees hurt from falling for you.",
+                "We may not be pants, but we'd make a great pair.",
+                "You know what's beautiful? Repeat the first word.",
+                "Your eyes remind me of Ikea: easy to get lost in.",
+                "Can I borrow a kiss? I promise to give one back.",
+                "If you were a Transformer, you'd be Optimus Fine.",
+                "Are you the sun? Because you're hot.",
+                "Are you a vape? Because I'd never use you.",
+                "Can I get your jersey? Because I want your name and number.",
+                "I must be a time traveler, because I can't imagine my future without you.",
+                "Do you believe in love at first sight, or should I walk by again?",
+                "Are you a light switch? Because you turn me on.",
+                "Are you a doctor? Because you instantly make me feel better.",
+                "You must be a masterpiece, because I can't take my eyes off of you.",
+                "Are you made of cheese? Because you're looking Gouda!",
+                "Are you my favorite song? Because I can't get you out of my head.",
+                "I'm no photographer, but I can picture us together.",
+                "Are you a diamond? Because you shine so bright!",
+                "Do you like fishing? Because you have me hooked.",
+                "Are you a dream? Because I don't want to wake up.",
+                "If you were a fruit, you'd be a fine-apple.",
+                "If I could rearrange the alphabet, I'd put U and I together.",
+                "Kiss me if I'm wrong, but the Earth is definitely flat.",
+                "Are you a phone charger? Because I'm dying without you.",
+                "What's your name again? Can I call you mine?",
+                "Are you a parking ticket? Because you've got fine written all over you.",
+                "Are you a triangle? Because you're acute one.",
+                "I'm Microsoft. Can I crash your place tonight?",
+                "Have you ever been to jail? Because it should be illegal to be that good-looking.",
+                "Did we go to school together? I could have sworn we had chemistry.",
+                "Are you the school stairs? Because you take my breath away.",
+                "Are you iron? Because I don't get enough of you?",
+                "Are you John Cena? Because I've never Cena girl like you before.",
+                "Are you chicken fingers and fries? Because I don't care how many options I have, I will always choose you.",
+                "Are you Japan? Because I just Tok-yo heart.",
+                "Are you my future? Because my parents told me to focus on you.",
+                "I want you ... to look at the first three words.",
+                "I don’t play cards but I feel like I’m about to pull a queen.",
+                "I can be wonder woman, cat woman, or your woman.",
+                "I can be Batman, Iron Man, Spiderman, or your man.",
+                "All the rizz lines are taken ... but are you taken?",
+                "No pen, no paper. But you still draw my attention.",
+                "Well, I am already yours, what are the other two things you wish for?"
+            ];
+
+            var randomNumber = Math.floor(Math.random() * pickupLines.length);
+            var pickupLine = pickupLines[randomNumber];
+            document.getElementById("pickupLine").innerHTML = pickupLine;
+
+            // Delay for 1 second before allowing another pickup line generation
+            document.querySelector('.generate-button').disabled = true;
+            setTimeout(function() {
+                document.querySelector('.generate-button').disabled = false;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
